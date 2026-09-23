@@ -1,13 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP1</title>
+</head>
+
+<body>
+    <nav id ="navbar">
+        <!-- <a href="index.html">Home</a> -->
+        <a href="#about">About</a>
+        <a href="#work">Projects</a>
+        <a href="#photography">Photos</a>
+        <a href="#video">Random Vid</a>
+    </nav>
+    <!-- <h1>Hello World! Welcome to MP1!</h1> -->
+    <section id="about">
+        
+        <img class="avatar" src="assets/avatar.png" alt="Maggie Tsai's Avatar" />
+        <h2 class="name">Maggie (Yi-Chen) Tsai</h2>
+        <div class="social-links">
+
+            <a
+                class="social-link"
+                href="https://www.instagram.com/maggietsaaai/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fa-brands fa-instagram" ></i>
+                <span>maggietsaaai</span>
+            </a>
+
+            <a 
+                class="social-link" 
+                href="https://github.com/maggietsaaai" 
+                target="_blank" 
+                rel="noopener noreferrer"
+            >
+                <i class="fa-brands fa-github"></i>
+                <span>maggietsaaai</span>
+            </a>
+        
+        </div>
+        <p>Hi! I'm Maggie Tsai, a first year master student in Computer Science at University of Illinois, Urbana-Champaign.</p>
+    </section>
+
+    
+
+    <section id="gallery">
+        <h2>Schools I've Went to ↓</h2>
+
+        <div class="carousel">
+            <button class="carousel-arrow previous" aria-label="Previous slide">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="slides">
+            <figure class="slide active">
+                <img src="assets/UIUC-Logo.jpg" alt="Description of slide one">
+                <figcaption>Currently an MCS student at UIUC!</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="assets/NYCU-Logo.png" alt="Description of slide two">
+                <figcaption>I completed my undergraduate studies in Computer Science at NYCU!</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="assets/SNU-Logo.png" alt="Description of slide three">
+                <figcaption>I was an exchange student at SNU in South Korea in Spring 2025!</figcaption>
+            </figure>
+            </div>
+
+            <button class="carousel-arrow next" aria-label="Next slide">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2>Projects</h2>
+        <!-- <p>Here are some of my works:</p> -->
+        <div class="works-row">
+            <article> <h3>SkinMatch <br> — Skincare Recommendation Web App</h3> 
+            <p>Built a Flask and MySQL web app that recommends skincare products based on users’ goals and skin types. Implemented account, review, and routine-management features and processed over 63,000 Sephora reviews for testing and recommendations.</p></article>
+            <article> <h3>NYCU Campus Autonomous <br> and VR Driving Simulation</h3> 
+            <p>Conducted a survey examining how students’ sleep, study, and leisure time relate to academic performance. Cleaned the responses and used Python to perform correlation, regression, and statistical visualization.</p></article>
+            <article> <h3>Student Time Allocation <br> and Academic Performance Analysis</h3> 
+            <p>Recreated the NYCU campus as a driving environment using OpenStreetMap, RoadRunner, Blender, Unreal Engine, and CARLA. The simulation supports autonomous driving, VR driving with a Logitech steering wheel, and a real-time minimap.</p></article>
+        </div>
+    </section>
+
+    <section id="photography">
+        <h2>Photography</h2>
+        <p>Here are some of photos I took this year!</p>
+        <div class="photo-row">
+
+            <article> 
+                <button class="modal-trigger" data-target="modal1">
+                    <img src="assets/navypier2.jpg" alt="Chicago" />
+                </button>
+            </article>
+            <dialog id="modal1">
+                <h3>Navy Pier, Chicago</h3>
+                <p>Shot on FUJIFILM X-M5</p>
+                <small>60mm · f/2.8 · 1/120s · ISO 1250</small>
+                <button class="close-modal">Close</button>
+            </dialog>
+
+            <article> 
+                <button class="modal-trigger" data-target="modal2">
+                    <img src="assets/navypier.JPEG" alt="Chicago" />
+                </button>
+            </article>
+            <dialog id="modal2">
+                <h3>Navy Pier, Chicago</h3>
+                <p>Shot on FUJIFILM X-M5</p>
+                <small>25mm · f/2.8 · 1/320s · ISO 400</small>
+                <button class="close-modal">Close</button>
+            </dialog>
+
+            <article> 
+                <button class="modal-trigger" data-target="modal3">
+                    <img src="assets/madrid.JPEG" alt="Madrid" />
+                </button>
+            </article>
+            <dialog id="modal3">
+                <h3>Madrid</h3>
+                <p>Shot on LEICA D-LUX 7</p>
+                <small>34mm · f/5.6 · 1/160s · ISO 200</small>
+                <button class="close-modal">Close</button>
+            </dialog>
+
+        </div>
+    </section>
+
+    <section id="video">
+        <h2>pretty blossoms in snow ↓</h2>
+        <div class="media-container">
+            <video autoplay loop muted playsinline>
+                <source src="assets/seoul.MOV" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </section>
+
+</body>
+
 </html>

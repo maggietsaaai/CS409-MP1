@@ -1,1 +1,407 @@
-/* Your SCSS here. */
+// ================================
+// Variables
+// ================================
+
+$main-font: "Inter", Arial, sans-serif;
+$glass-blue: rgba(14, 33, 51, 0.3);
+$brat: rgb(72, 255, 0);
+
+
+// ================================
+// Global styles
+// ================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    // color: rgba(65, 39, 39, 0.848);
+    color: $brat;
+    
+    font-family: $main-font;
+    text-align: center;
+
+    background-image: url("/assets/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(2px);
+}
+
+section {
+    scroll-margin-top: 6rem;
+}
+
+h2 {
+    transform: scaleY(1.2);
+    font-weight: 800;
+    letter-spacing: 0.3px;
+
+    display: inline-block;
+    width: fit-content;
+    color: black;
+    background-color: $brat;
+}
+h3, p{
+    transform: scaleY(1.2);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+// ================================
+// Navigation
+// ================================
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    height: 5rem;
+    padding: 1rem;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+
+    background-color: $glass-blue;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        height 0.3s ease,
+        padding 0.3s ease,
+        font-size 0.3s ease;
+
+    &.scrolled {
+        height: 3rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+
+        color: $brat;
+        text-decoration: none;
+
+        transform: scaleY(1.2);
+
+        &::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -0.4rem;
+
+            width: 100%;
+            height: 0.1rem;
+
+            background-color: white;
+
+            transform: scaleX(0);
+            transform-origin: left;
+
+            transition: transform 0.3s ease;
+        }
+
+        &.active::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+
+// ================================
+// About
+// ================================
+
+#about {
+    padding: 10rem 2rem;
+
+    p {
+        width: 100%;
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    
+}
+
+.avatar {
+    display: block;
+    width: 200px;
+    height: auto;
+    margin: 2rem auto 0;
+
+    border-radius: 50%;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        color: $brat;
+        text-decoration: none;
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        span {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+    }
+}
+
+
+// ================================
+// Carousel
+// ================================
+
+@keyframes carouselFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel {
+    position: relative;
+
+    width: 100%;
+    max-width: 600px;
+    margin-inline: auto;
+
+    overflow: hidden;
+
+    font-weight: 600;
+
+    .slide {
+        display: none;
+        margin: 0;
+
+        &.active {
+            display: block;
+            animation: carouselFade 0.5s ease-in-out;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            margin-top: 1rem;
+        }
+    }
+
+    &-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+
+        display: grid;
+        place-items: center;
+
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+
+        color: white;
+        font-size: 1.2rem;
+
+        background-color: $glass-blue;
+        backdrop-filter: blur(5px);
+
+        border: none;
+        border-radius: 50%;
+
+        cursor: pointer;
+        transform: translateY(-50%);
+
+        transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+
+        &:hover {
+            background-color: $glass-blue;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        &:focus-visible {
+            outline: 3px solid white;
+            outline-offset: 3px;
+        }
+
+        &.previous {
+            left: 1rem;
+        }
+
+        &.next {
+            right: 1rem;
+        }
+    }
+}
+
+
+// ================================
+// Projects
+// ================================
+
+#work {
+    margin: 0;
+    padding: 10rem 2rem 5rem;
+}
+
+.works-row {
+    display: flex;
+    gap: 20px;
+
+    text-align: center;
+
+    article {
+        flex: 1;
+        p{
+            padding: 3rem;
+        }
+    }
+}
+
+
+// ================================
+// Photography and modals
+// ================================
+
+.photo-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-trigger {
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    img {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+}
+
+dialog {
+    width: calc(100% - 2rem);
+    max-width: 300px;
+    padding: 2rem;
+
+    border: none;
+    // border-radius: 12px;
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+
+// ================================
+// Video
+// ================================
+
+.media-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding-bottom: 6rem;
+
+    video {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+    }
+}
+
+#gallery,
+#photography {
+    padding: 8rem 2rem;
+    background-color: rgba(26, 25, 25, 0.16);
+    // backdrop-filter: blur(4px);
+}
+
+#work{
+    background-color: rgba(0, 0, 0, 0.553);
+}
+// ================================
+// Responsive layout
+// ================================
+
+@media (max-width: 900px) {
+    #navbar {
+        gap: 1.5rem;
+    }
+
+    .works-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    #about,
+    #work {
+        padding: 6rem 1.5rem;
+    }
+
+    .carousel {
+        max-width: calc(100% - 2rem);
+    }
+
+    .media-container {
+        padding: 6rem 1rem;
+    }
+}
