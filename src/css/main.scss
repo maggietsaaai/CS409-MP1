@@ -366,6 +366,23 @@ dialog {
         object-fit: cover;
     }
 }
+// ================================
+// Footer
+// ================================
+
+footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+
+    background-color: $glass-blue;
+    color: $brat;
+    text-align: center;
+
+    p {
+        margin: 0.4rem 0;
+    }
+}
 
 #gallery,
 #photography {
